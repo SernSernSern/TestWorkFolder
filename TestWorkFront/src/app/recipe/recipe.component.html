@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-3">
+        <app-recipes></app-recipes>
+      </div>
+      <div class="col-9">
+        <app-search-recipe></app-search-recipe>
+        <br>
+        <br>
+        <h1 class="display-3 text-center">{{recipe.name}}</h1>
+        <br>
+        <br>
+        <br>
+        <h4>Ingredients:</h4>
+        <br>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let ing of recipe.ingredients">{{ing.name}}, {{ing.quantity}}</li>
+        </ul>
+        <br>
+        <br>
+        <h4>Instructions:</h4>
+        <br>
+        <div class="border border-light rounded">
+          <p *ngFor="let inst of instructions">{{inst}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-2">
+            <button type="button" class="btn btn-info"><a routerLink="/update_recipe/{{recipe.id}}" style="text-decoration: none; color: white">Update recipe</a></button>
+          </div>
+          <div class="col-10">
+            <button type="button" class="btn btn-danger" (click)="deleteThisRecipe()">Delete recipe</button>
+          </div>
+        </div>
+        <br>
+        <p class="text-right font-italic">Recipe last accessed on {{recipe.lastAccessed | date:'dd MMM yyyy HH:mm:ss'}}</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+  

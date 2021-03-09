@@ -1,0 +1,11 @@
+<div class="container-fluid mt-5">
+    <input #searchBox class="form-control" (input)="search(searchBox.value)" placeholder="Search for recipe name">
+  
+    <ul class="search-result">
+      <li *ngFor="let recipe of recipes$ | async" (click)="search('')">
+        <a routerLink="/recipe/{{recipe.id}}" (click)="searchBox.value = ''">
+          {{recipe.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
